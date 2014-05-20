@@ -1,0 +1,129 @@
+<hr />
+<div ng-show="showalert" class="alert" ng-class="alertaction">
+	<button type="button" class="close" ng-click="showalert=!showalert">&times;</button>
+	<p>{{alertstring}}</p>
+</div>
+<div ng-show="showformvalidation"
+     class= "alert" 
+     ng-class="{'alert-success': serviceform.customergroup.$valid && 
+     							 serviceform.fid_category.$valid  &&
+                                 serviceform.servicename.$valid ,
+                'alert-danger' : serviceform.customergroup.$invalid && 
+     							 serviceform.fid_category.$invalid  &&
+                                 serviceform.servicename.$invalid ,
+                                 }">
+	<button type="button" class="close" ng-click="showalert=!showalert">&times;</button>
+	<span ng-show="serviceform.customergroup.$valid && 
+     			   serviceform.fid_category.$valid  &&
+                   serviceform.servicename.$valid">Keine
+    </span>
+    <span>Felder zum überprüfen</span>
+    <br />
+    <br />
+    <p ng-hide="serviceform.customergroup.$valid">Kundengruppe</p>
+    <p ng-hide="serviceform.fid_category.$valid">Kategorie</p>
+    <p ng-hide="serviceform.servicename.$valid">Bezeichnung</p>
+</div>
+<div data-ng-init="init()">
+    <fieldset>
+        <legend class="btn-primary legendservice">
+            <button class="btn btn-mini marginleft3 marginright10" type="button" ng-model="opencollapsed" ng-click="opencollapsed=!opencollapsed">
+                <i  ng-class="{'icon-chevron-down': !opencollapsed, 'icon-chevron-up': opencollapsed}">
+                </i>
+            </button>
+            <i class="icon-star" ></i> | Serviceformular
+        </legend>
+        <form name="serviceform" class="well wellservice" ng-show="opencollapsed" novalidate>
+            <div class="input-prepend"> 
+                <span class="add-on btn-primary">
+                    <input type="radio" name="customergroup" ng-model="arrayServiceData.customergroup" ng-value="0" ng-required="arrayServiceData.customergroup.length==null">
+                </span>
+                <span class="locationinputwidth-s prependedInput uneditable-input">
+                    Privatkunden
+                </span>
+                <span class="add-on btn-primary locationinputmarginleft">
+                    <input type="radio"  name="customergroup" ng-model="arrayServiceData.customergroup" ng-value="1" ng-required="arrayServiceData.customergroup.length==null">
+                </span>
+                <span class="locationinputwidth-s prependedInput uneditable-input">
+                    Geschäftskunden
+                </span>
+            </div>
+            <div class="input-prepend row-fluid"> <span class="add-on add-on-width">Kategorie</span>
+                <select name="fid_category" data-ng-model="arrayServiceData.fid_category" ng-options="category.pid_servicecategory as category.categoryname for category in serviceCategorys" ng-required="true"></select>
+            </div>
+            <div class="input-prepend row-fluid"> <span class="add-on add-on-width">Bezeichnung</span>
+                <input name="servicename" ng-model="arrayServiceData.servicename" class="locationinputwidth-xl" type="text" placeholder="Bezeichnung" ng-required="true">
+            </div>
+            <p>
+            	<button class="btn btn-danger btn-small" type="button" ng-click="objectCleaner(arrayServiceData)">Formular leeren</button>
+                <button ng-hide="arrayServiceData.pid_service != null" class="btn btn-primary btn-small" type="button" ng-click="clickInsertService()">Service eintragen</button>
+                <button ng-hide="arrayServiceData.pid_service == null" class="btn btn-primary btn-small" type="button" ng-click="clickUpdateService()">Änderungen eintragen</button>
+            </p>
+        </form>
+    </fieldset>
+</div>
+<hr />
+<legend class="btn-primary legendservice">
+    <button class="btn btn-mini marginleft3 marginright10" type="button" ng-model="filtercollapsed" ng-click="filtercollapsed=!filtercollapsed">
+        <i  ng-class="{'icon-chevron-down': !filtercollapsed, 'icon-chevron-up': filtercollapsed}">
+        </i>
+    </button>
+    <i class="icon-book" ></i> | Service-Katalog
+</legend>
+<div class="well wellservice" ng-show="filtercollapsed">
+	<h4>Filter:</h4>
+    <div class="input-prepend row-fluid">
+    	<span class="add-on add-on-width">Kategorie</span>
+        <input class="locationinputwidth-l" type="text" placeholder="Kategorie" ng-model="search.categoryname">
+    </div>
+    <div class="input-prepend row-fluid">
+    	<span class="add-on add-on-width">Servicename</span>
+        <input class="locationinputwidth-l" type="text" placeholder="Servicename" ng-model="search.servicename">
+    </div>
+ <br>
+</div>
+<table class="table-condensed tblservices">
+    <thead>
+        <tr>
+            <th class="servicehead150">Kategoriename</th>
+            <th class="servicehead200">Servicename</th>
+            <th class="servicehead200">Kundengruppe</th>
+            <th class="servicehead75">Aktionen</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="service in allService | filter: search">
+            <td class="servicehead150">{{service.categoryname}}</td>
+            <td class="servicehead200">{{service.servicename}}</td>
+            <td class="servicehead200">
+            	<p ng-if="service.customergroup == '0'">Privatkunden</p>
+                <p ng-if="service.customergroup == '1'">Geschäftskunden</p>
+            </td>
+            <td class="servicehead75">
+            	<a class="btn btn-mini btn-primary pull-left marginright10" ng-click="clickEditService(service)">
+                	<i class="icon-pencil icon-white"></i>
+                </a>
+            	<a class="btn btn-mini btn-danger pull-left " ng-click="clickDeleteService(service)">
+                    <i class="icon-remove icon-white"></i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p class="marginbottom"></p>
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+

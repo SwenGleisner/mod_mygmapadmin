@@ -1,0 +1,47 @@
+<hr />
+<div class="row-fluid">
+	<h4 ng-repeat="categoryobjectheader in myCategoryObjectsheader">Kategorien: {{categoryobjectheader.name}}</h4>
+    <form class="form-inline">
+    <label class="checkbox">
+    	Kategoriebezeichnung
+    </label>
+    <input id="inputlocationbezeichnung" name="locationbezeichnung" type="text" class="input" placeholder="Bezeichnung eingeben">
+    <button type="submit" class="btn" ng-click="clickAddCategory(myCategoryService,myActualCategoryObject.myActualCategoryObject)">einfügen</button>
+    </form>
+</div>
+<div id="mytreeform" class="row-fluid">
+
+</div>
+<div id="mytree" class="row-fluid dd">
+
+</div>
+<p class="marginbottom"></p>
+
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+<h3 id="myModalLabel">Kategorie löschen</h3>
+</div>
+<div id="deletemodalbody" class="modal-body">
+<span>Soll die Kategorie</span><span id="delcatname"> </span><span> und die dazugehörigen Unterkategorien wirklich gelöscht werden?</p>
+</div>
+<div class="modal-footer">
+<button class="btn" data-dismiss="modal" aria-hidden="true">abbrechen</button>
+<button class="btn btn-primary" ng-click="clickDeleteCategory(myCategoryService,myActualCategoryObject)">Kategorien löschen</button>
+</div>
+</div>
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+

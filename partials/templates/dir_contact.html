@@ -1,0 +1,67 @@
+<legend class="btn-primary legendservice">
+	<button class="btn btn-mini btn-primary marginright10" type="button" ng-model="contactcollapsed" ng-click="contactcollapsed=!contactcollapsed">
+    	<i  ng-class="{'icon-chevron-down': !contactcollapsed, 'icon-chevron-up': contactcollapsed}">
+        </i>
+    </button>
+    <i class="icon-user icon-white" ></i> | Kontakt-Daten
+</legend>
+<div class="well wellservice" ng-show="contactcollapsed">
+    <table ng-hide="arrayContacts.length < 0" class="table-condensed tblcontacs">
+        <thead>
+            <tr>
+                <th class="servicehead50">Anrede</th>
+                <th class="servicehead150">Nachname</th>
+                <th class="servicehead150">Vorname</th>
+                <th class="servicehead150">Telefon</th>
+                <th class="servicehead150">E-Mail</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="contactObject in arrayContacts">
+                <td class="servicehead50">{{contactObject.title}}</td>
+                <td class="servicehead150">{{contactObject.surname}}</td>
+                <td class="servicehead150">{{contactObject.firstname}}</td>
+                <td class="servicehead150">({{contactObject.countrycode}}) {{contactObject.areacode}}/{{contactObject.phonenumber}}-{{contactObject.callthrough}}</td>
+                <td class="servicehead150">{{contactObject.email}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="input-prepend"> 
+        <span class="add-on btn-primary">
+            <input type="radio" ng-model="contactFormData.title" ng-value="'Herr'">
+        </span>
+        <span class="locationinputwidth-s prependedInput uneditable-input">
+            Herr
+        </span>
+        <span class="add-on btn-primary locationinputmarginleft">
+            <input type="radio" ng-model="contactFormData.title" ng-value="'Frau'">
+        </span>
+        <span class="locationinputwidth-s prependedInput uneditable-input">
+            Frau
+        </span>
+    </div>
+    <div class="input-prepend row-fluid"> <span class="add-on add-on-width">Vorname</span>
+        <input ng-model="contactFormData.firstname" class="locationinputwidth-m" type="text" placeholder="Vorname">
+    </div>
+    <div class="input-prepend row-fluid"> <span class="add-on add-on-width">Nachname</span>
+        <input ng-model="contactFormData.surname" class="locationinputwidth-m" type="text" placeholder="Nachname">
+    </div>
+    <div class="input-prepend row-fluid"> <span class="add-on add-on-width">Landesvorwahl</span>
+        <input ng-model="contactFormData.countrycode" class="locationinputwidth-s" type="text" placeholder="0049">
+    </div>
+    <div class="input-prepend row-fluid"> <span class="add-on add-on-width">Ortsvorwahl</span>
+        <input ng-model="contactFormData.areacode" class="locationinputwidth-s" type="text" placeholder="6421">
+    </div>
+    <div class="input-prepend row-fluid"> <span class="add-on add-on-width">Rufnummer</span>
+        <input ng-model="contactFormData.phonenumber" class="locationinputwidth-s" type="text" placeholder="987654">
+    </div>
+    <div class="input-prepend row-fluid"> <span class="add-on add-on-width">Durchwahl</span>
+        <input ng-model="contactFormData.callthrough" class="locationinputwidth-s" type="text" placeholder="666">
+    </div>
+    <div class="input-prepend row-fluid"> <span class="add-on add-on-width">E-Mail</span>
+        <input ng-model="contactFormData.email" class="locationinputwidth-m" type="text" placeholder="hans.mustermann@company.de">
+    </div>
+    <p>
+        <button class="btn btn-primary" type="button" ng-click="clickAddContact()">Kontakt eintragen</button>
+    </p>
+</div>

@@ -1,0 +1,40 @@
+<legend class="btn-primary legendservice">
+	<button class="btn btn-mini btn-primary marginright10" type="button" ng-model="geocollapsed" ng-click="geocollapsed=!geocollapsed">
+    	<i  ng-class="{'icon-chevron-down': !geocollapsed, 'icon-chevron-up': geocollapsed}">
+        </i>
+    </button>
+    <i class="icon-map-marker icon-white" ></i> | Geo-Daten
+</legend>
+<div class="well wellservice" ng-show="geocollapsed">
+    <div class="input-prepend row-fluid"> <span class="add-on add-on-width">Latitude</span>
+        <input id="latitude" ng-model="address.latitude" class="locationinputwidth-s" type="text" placeholder="Latitude">
+        <span class="add-on add-on-width locationinputmarginleft">Longitude</span>
+        <input id="longitude" ng-model="address.longitude" class="locationinputwidth-s" type="text" placeholder="Longitude">
+        <button class="btn btn-primary locationinputmarginleft" type="button" ng-click="clickSearchGeodata()"> <i class="icon-search icon-white"> </i> Geodaten anfordern </button>
+    </div>
+</div>
+
+<!-- MODAL MULTI GEOCODEDATA FOR ADDRESS -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Ungenaue Geokoordinaten</h3>
+    </div>
+    <div id="deletemodalbody" class="modal-body">
+        <div class="alert alert-error"> <i class="icon-warning-sign"></i> Bitte den passenden Ort auswählen, oder eine genauere Adresse angeben </div>
+        <span class="multigeodata" ng-repeat="geodataObject in myGeodataResultArray">
+        <div class="input-prepend"> 
+        	<span class="add-on btn-primary">
+            	<input type="radio" ng-model="myGeoSelect.selected" ng-value="geodataObject">
+            </span>
+            <span class="locationinputwidth-l prependedInput uneditable-input">
+            	{{geodataObject.formatted_address}} ({{geodataObject.address_components[2].long_name}} | {{geodataObject.address_components[3].long_name}})
+            </span>
+        </div>
+        <hr />
+        </span> </div>
+    <div class="modal-footer">
+        <button class="btn btn-danger" aria-hidden="true" ng-click="clickClearGeodata()">abbrechen</button>
+        <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" ng-click="clickSelectGeodata()">übernehmen</button>
+    </div>
+</div>

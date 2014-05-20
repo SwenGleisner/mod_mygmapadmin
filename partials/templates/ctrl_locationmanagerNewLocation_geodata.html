@@ -1,0 +1,15 @@
+<legend >
+	<button class="btn btn-mini btn-primary marginright10" type="button" ng-model="geocollapsed" ng-click="geocollapsed=!geocollapsed">
+    	<i  ng-class="{'icon-chevron-down': !geocollapsed, 'icon-chevron-up': geocollapsed}">
+        </i>
+    </button>
+    <i class="icon-map-marker" ></i> | Geo-Daten
+</legend>
+<div ng-show="geocollapsed">
+    <div class="input-prepend row-fluid"> <span class="add-on add-on-width">Latitude</span>
+        <input id="latitude" ng-model="myInsertDataArray.latitude" class="locationinputwidth-s" type="text" placeholder="Latitude">
+        <span class="add-on add-on-width locationinputmarginleft">Longitude</span>
+        <input id="longitude" ng-model="myInsertDataArray.longitude" class="locationinputwidth-s" type="text" placeholder="Longitude">
+        <button class="btn btn-primary locationinputmarginleft" type="button" ng-click="clickSearchGeodata()"> <i class="icon-search icon-white"> </i> Geodaten anfordern </button>
+    </div>
+</div>

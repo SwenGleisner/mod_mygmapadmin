@@ -1,0 +1,167 @@
+.mybrand {
+	font-weight: bold;
+	font-size: 14px;
+	margin-top: 7px;
+	text-indent: 7px;
+	color: #FFF;
+}
+
+.catmanagermenu {
+	list-style-type: none;
+	display: inline;
+}
+
+.tblservices {
+	text-shadow: 0 0 3px #FFFFFF;
+	max-width: 100% !important;
+	margin: auto !important;
+	margin-top: 20px!important;
+	text-align:left!important;
+	border: 2px solid #1D6CB0;
+	border-radius: 5px;
+	box-shadow: 0px 0px 5px #333;
+	padding: 10px;
+	border-collapse: separate !important;
+}
+
+.tblcontacs {
+	table-layout: fixed;
+	text-shadow: 0 0 3px #FFFFFF;
+	font-size: 12px;
+	max-width: 100% !important;
+	margin-top: 20px!important;
+	margin-bottom: 20px!important;
+	text-align:left!important;
+	border: 2px solid #1D6CB0;
+	border-radius: 5px;
+	box-shadow: 0px 0px 5px #333;
+	padding: 10px;
+	border-collapse: separate !important;
+}
+
+.tblcontacs td {
+	word-wrap: break-word;
+	vertical-align: top;
+	border-top: 1px solid #1D6CB0;
+}
+
+.tblservices th{
+	border-bottom: 2px solid #1D6CB0;
+	font-size: 13px;
+	color: #000 !important;
+}
+
+.tblservices td{
+	border-top: 1px solid  #1D6CB0 !important;
+}
+
+.legendservice {
+	margin-bottom: 0px !important;
+}
+
+.wellservice {
+	border: 1px solid #1D6CB0 !important;
+	border-radius: 0 0 4px 4px !important;
+}
+
+.add-on-width {
+	width: 100px !important;
+	text-align:left !important;
+	font-weight: bold !important;
+}
+
+.locationinputwidth-xl {
+	width: 550px !important;
+}
+.locationinputwidth-l {
+	width: 450px !important;
+}
+
+.locationinputwidth-m {
+	width: 300px !important;
+}
+.locationinputwidth-s {
+	width: 100px !important;
+}
+.locationinputmarginleft{
+	margin-left: 25px !important;
+}
+.locationcategorycontainer {
+	floar: left;
+	position: relative;
+}
+
+.input178 {
+	width: 178px !important;
+}
+
+.div50 {
+	width: 50px;
+	float: left;
+}
+
+.servicehead75 {
+	width: 50px;
+	float: left;
+}
+
+.servicehead75 {
+	width: 75px;
+	float: left;
+}
+
+.div100, .servicehead100 {
+	width: 100px;
+	float: left;
+}
+
+.div150, .servicehead150 {
+	width: 150px;
+	float: left;
+}
+
+.div200, .servicehead200 {
+	width: 200px;
+	float: left;
+}
+
+.div250 {
+	width: 250px;
+	float: left;
+}
+
+.contact {
+	clear: both;
+	padding-bottom: 15px;
+}
+.marginright10 {
+	margin-right: 10px !important;
+}
+.marginleft3 {
+	margin-left: 3px !important;
+}
+.textalignright {
+	text-align: right !important;
+}
+
+.weekcontainer {
+	max-width: 800px;
+}
+
+.weekdaycontainer {
+    border: 2px solid #1D6CB0;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px #808080;
+    float: left;
+    padding: 5px;
+    position: relative;
+    width: 137px;
+	margin-right: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	min-height: 152px;
+}
+
+.weekdaytime {
+	line-height: 25px;
+}

@@ -1,0 +1,421 @@
+object(stdClass)#110 (13) {
+  ["locationcategories"]=>
+  array(0) {
+  }
+  ["locationname"]=>
+  string(8) "TestName"
+  ["additiontoaddress"]=>
+  string(10) "TestZusatz"
+  ["street"]=>
+  string(11) "Teststraße"
+  ["housenr"]=>
+  string(1) "1"
+  ["zipcode"]=>
+  string(5) "12345"
+  ["locality"]=>
+  string(6) "Boston"
+  ["longitude"]=>
+  float(-84.9308605)
+  ["latitude"]=>
+  float(39.8072735)
+  ["locationcontact"]=>
+  array(1) {
+    [0]=>
+    object(stdClass)#121 (8) {
+      ["title"]=>
+      string(4) "Herr"
+      ["firstname"]=>
+      string(4) "Hans"
+      ["surname"]=>
+      string(6) "Muster"
+      ["countrycode"]=>
+      string(4) "0049"
+      ["areacode"]=>
+      string(4) "6421"
+      ["phonenumber"]=>
+      string(7) "9876543"
+      ["callthrough"]=>
+      string(3) "123"
+      ["email"]=>
+      string(21) "hans.muster@muster.de"
+    }
+  }
+  ["locationservice"]=>
+  array(9) {
+    [0]=>
+    object(stdClass)#117 (7) {
+      ["pid_servicecategory"]=>
+      string(1) "1"
+      ["categoryname"]=>
+      string(5) "Brief"
+      ["pid_service"]=>
+      string(2) "75"
+      ["fid_category"]=>
+      string(1) "1"
+      ["servicename"]=>
+      string(4) "Maxi"
+      ["customergroup"]=>
+      string(1) "0"
+      ["isSelected"]=>
+      bool(true)
+    }
+    [1]=>
+    object(stdClass)#118 (7) {
+      ["pid_servicecategory"]=>
+      string(1) "1"
+      ["categoryname"]=>
+      string(5) "Brief"
+      ["pid_service"]=>
+      string(2) "69"
+      ["fid_category"]=>
+      string(1) "1"
+      ["servicename"]=>
+      string(8) "Standard"
+      ["customergroup"]=>
+      string(1) "0"
+      ["isSelected"]=>
+      bool(true)
+    }
+    [2]=>
+    object(stdClass)#116 (7) {
+      ["pid_servicecategory"]=>
+      string(1) "1"
+      ["categoryname"]=>
+      string(5) "Brief"
+      ["pid_service"]=>
+      string(2) "71"
+      ["fid_category"]=>
+      string(1) "1"
+      ["servicename"]=>
+      string(7) "Kompakt"
+      ["customergroup"]=>
+      string(1) "0"
+      ["isSelected"]=>
+      bool(true)
+    }
+    [3]=>
+    object(stdClass)#14 (7) {
+      ["pid_servicecategory"]=>
+      string(1) "1"
+      ["categoryname"]=>
+      string(5) "Brief"
+      ["pid_service"]=>
+      string(2) "73"
+      ["fid_category"]=>
+      string(1) "1"
+      ["servicename"]=>
+      string(5) "Groß"
+      ["customergroup"]=>
+      string(1) "0"
+      ["isSelected"]=>
+      bool(true)
+    }
+    [4]=>
+    object(stdClass)#109 (7) {
+      ["pid_servicecategory"]=>
+      string(1) "1"
+      ["categoryname"]=>
+      string(5) "Brief"
+      ["pid_service"]=>
+      string(2) "74"
+      ["fid_category"]=>
+      string(1) "1"
+      ["servicename"]=>
+      string(5) "Groß"
+      ["customergroup"]=>
+      string(1) "1"
+      ["isSelected"]=>
+      bool(true)
+    }
+    [5]=>
+    object(stdClass)#125 (7) {
+      ["pid_servicecategory"]=>
+      string(1) "1"
+      ["categoryname"]=>
+      string(5) "Brief"
+      ["pid_service"]=>
+      string(2) "76"
+      ["fid_category"]=>
+      string(1) "1"
+      ["servicename"]=>
+      string(4) "Maxi"
+      ["customergroup"]=>
+      string(1) "1"
+      ["isSelected"]=>
+      bool(true)
+    }
+    [6]=>
+    object(stdClass)#126 (7) {
+      ["pid_servicecategory"]=>
+      string(1) "1"
+      ["categoryname"]=>
+      string(5) "Brief"
+      ["pid_service"]=>
+      string(2) "87"
+      ["fid_category"]=>
+      string(1) "1"
+      ["servicename"]=>
+      string(17) "Infopost Standard"
+      ["customergroup"]=>
+      string(1) "1"
+      ["isSelected"]=>
+      bool(true)
+    }
+    [7]=>
+    object(stdClass)#127 (7) {
+      ["pid_servicecategory"]=>
+      string(1) "1"
+      ["categoryname"]=>
+      string(5) "Brief"
+      ["pid_service"]=>
+      string(2) "88"
+      ["fid_category"]=>
+      string(1) "1"
+      ["servicename"]=>
+      string(16) "Infopost Kompakt"
+      ["customergroup"]=>
+      string(1) "1"
+      ["isSelected"]=>
+      bool(true)
+    }
+    [8]=>
+    object(stdClass)#128 (7) {
+      ["pid_servicecategory"]=>
+      string(1) "1"
+      ["categoryname"]=>
+      string(5) "Brief"
+      ["pid_service"]=>
+      string(2) "89"
+      ["fid_category"]=>
+      string(1) "1"
+      ["servicename"]=>
+      string(14) "Infopost Groß"
+      ["customergroup"]=>
+      string(1) "1"
+      ["isSelected"]=>
+      bool(true)
+    }
+  }
+  ["locationopentime"]=>
+  array(6) {
+    [0]=>
+    object(stdClass)#129 (4) {
+      ["pid_opentime"]=>
+      NULL
+      ["day"]=>
+      object(stdClass)#130 (3) {
+        ["id"]=>
+        string(1) "0"
+        ["name"]=>
+        string(6) "Montag"
+        ["counter"]=>
+        int(1)
+      }
+      ["from"]=>
+      string(5) "06:00"
+      ["to"]=>
+      string(5) "18:00"
+    }
+    [1]=>
+    object(stdClass)#131 (4) {
+      ["pid_opentime"]=>
+      NULL
+      ["day"]=>
+      object(stdClass)#132 (3) {
+        ["id"]=>
+        string(1) "1"
+        ["name"]=>
+        string(8) "Dienstag"
+        ["counter"]=>
+        int(1)
+      }
+      ["from"]=>
+      string(5) "06:00"
+      ["to"]=>
+      string(5) "18:00"
+    }
+    [2]=>
+    object(stdClass)#133 (4) {
+      ["pid_opentime"]=>
+      NULL
+      ["day"]=>
+      object(stdClass)#134 (3) {
+        ["id"]=>
+        string(1) "2"
+        ["name"]=>
+        string(8) "Mittwoch"
+        ["counter"]=>
+        int(1)
+      }
+      ["from"]=>
+      string(5) "06:00"
+      ["to"]=>
+      string(5) "20:00"
+    }
+    [3]=>
+    object(stdClass)#135 (4) {
+      ["pid_opentime"]=>
+      NULL
+      ["day"]=>
+      object(stdClass)#136 (3) {
+        ["id"]=>
+        string(1) "3"
+        ["name"]=>
+        string(10) "Donnerstag"
+        ["counter"]=>
+        int(1)
+      }
+      ["from"]=>
+      string(5) "08:00"
+      ["to"]=>
+      string(5) "18:00"
+    }
+    [4]=>
+    object(stdClass)#137 (4) {
+      ["pid_opentime"]=>
+      NULL
+      ["day"]=>
+      object(stdClass)#138 (3) {
+        ["id"]=>
+        string(1) "4"
+        ["name"]=>
+        string(7) "Freitag"
+        ["counter"]=>
+        int(1)
+      }
+      ["from"]=>
+      string(5) "06:00"
+      ["to"]=>
+      string(5) "20:00"
+    }
+    [5]=>
+    object(stdClass)#139 (4) {
+      ["pid_opentime"]=>
+      NULL
+      ["day"]=>
+      object(stdClass)#140 (3) {
+        ["id"]=>
+        string(1) "5"
+        ["name"]=>
+        string(7) "Samstag"
+        ["counter"]=>
+        int(1)
+      }
+      ["from"]=>
+      string(5) "08:00"
+      ["to"]=>
+      string(5) "16:00"
+    }
+  }
+  ["locationemptytime"]=>
+  array(6) {
+    [0]=>
+    object(stdClass)#141 (4) {
+      ["pid_opentime"]=>
+      NULL
+      ["day"]=>
+      object(stdClass)#142 (3) {
+        ["id"]=>
+        string(1) "0"
+        ["name"]=>
+        string(6) "Montag"
+        ["counter"]=>
+        int(1)
+      }
+      ["from"]=>
+      string(5) "18:00"
+      ["to"]=>
+      string(5) "18:01"
+    }
+    [1]=>
+    object(stdClass)#143 (4) {
+      ["pid_opentime"]=>
+      NULL
+      ["day"]=>
+      object(stdClass)#144 (3) {
+        ["id"]=>
+        string(1) "1"
+        ["name"]=>
+        string(8) "Dienstag"
+        ["counter"]=>
+        int(1)
+      }
+      ["from"]=>
+      string(5) "18:00"
+      ["to"]=>
+      string(5) "18:01"
+    }
+    [2]=>
+    object(stdClass)#145 (4) {
+      ["pid_opentime"]=>
+      NULL
+      ["day"]=>
+      object(stdClass)#146 (3) {
+        ["id"]=>
+        string(1) "2"
+        ["name"]=>
+        string(8) "Mittwoch"
+        ["counter"]=>
+        int(1)
+      }
+      ["from"]=>
+      string(5) "18:00"
+      ["to"]=>
+      string(5) "18:01"
+    }
+    [3]=>
+    object(stdClass)#147 (4) {
+      ["pid_opentime"]=>
+      NULL
+      ["day"]=>
+      object(stdClass)#148 (3) {
+        ["id"]=>
+        string(1) "3"
+        ["name"]=>
+        string(10) "Donnerstag"
+        ["counter"]=>
+        int(1)
+      }
+      ["from"]=>
+      string(5) "18:00"
+      ["to"]=>
+      string(5) "18:01"
+    }
+    [4]=>
+    object(stdClass)#149 (4) {
+      ["pid_opentime"]=>
+      NULL
+      ["day"]=>
+      object(stdClass)#150 (3) {
+        ["id"]=>
+        string(1) "4"
+        ["name"]=>
+        string(7) "Freitag"
+        ["counter"]=>
+        int(1)
+      }
+      ["from"]=>
+      string(5) "18:00"
+      ["to"]=>
+      string(5) "18:01"
+    }
+    [5]=>
+    object(stdClass)#151 (4) {
+      ["pid_opentime"]=>
+      NULL
+      ["day"]=>
+      object(stdClass)#152 (3) {
+        ["id"]=>
+        string(1) "6"
+        ["name"]=>
+        string(7) "Sonntag"
+        ["counter"]=>
+        int(1)
+      }
+      ["from"]=>
+      string(5) "18:00"
+      ["to"]=>
+      string(5) "18:01"
+    }
+  }
+}

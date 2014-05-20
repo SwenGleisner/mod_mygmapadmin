@@ -1,0 +1,55 @@
+<hr />
+<div>
+    <fieldset>
+        <legend class="btn-primary legendservice"><i class="icon-folder-close icon-white marginleft3" ></i> | Location-Kategorien</legend>
+        <div class="well wellservice">
+            <div class="input-prepend input-append locationcategorycontainer marginright10" ng-repeat="category in myLocationCategories">
+                <span class="add-on" >
+                    <input ng-model="categorySelect[category.name]" name="locationcategories[]" value="{{category.id}}" type="checkbox">
+                </span>
+                <span class="input178 uneditable-input">{{category.name}}</span>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend class="btn-primary legendservice"><i class="icon-th-list icon-white marginleft3" ></i> | Location-Daten</legend>
+        <div class="well wellservice">
+            <div class="input-prepend row-fluid"> <span class="add-on add-on-width">Bezeichnung</span>
+                <input id="locationname" ng-model="myInsertDataArray.locationname" class="locationinputwidth-xl" type="text" placeholder="Locationname">
+            </div>
+            <div class="input-prepend row-fluid"> <span class="add-on add-on-width">Adresszusatz</span>
+                <input id="additiontoaddress" ng-model="myInsertDataArray.additiontoaddress" class="locationinputwidth-xl" type="text" placeholder="Adresszusatz">
+            </div>
+            <div class="input-prepend row-fluid"> <span class="add-on add-on-width">Strasse</span>
+                <input id="street" ng-model="myInsertDataArray.street" class="locationinputwidth-m" type="text" placeholder="Straße">
+                <span class="add-on add-on-width locationinputmarginleft">Haus-Nr.</span>
+                <input id="housenr" ng-model="myInsertDataArray.housenr" class="locationinputwidth-s" type="text" placeholder="Hausnummer">
+            </div>
+            <div class="input-prepend row-fluid"> <span class="add-on add-on-width">Postleitzahl</span>
+                <input id="zipcode" ng-model="myInsertDataArray.zipcode" class="locationinputwidth-s" type="text" placeholder="Postleitzahl">
+                <span class="add-on add-on-width locationinputmarginleft">Ort</span>
+                <input id="locality" ng-model="myInsertDataArray.locality" class="locationinputwidth-m" type="text" placeholder="Ortschaft">
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+		<geodata address="myInsertDataArray"></geodata>
+    </fieldset>
+    <fieldset>
+		<contact allcontact="arrayAllContact"></contact>
+    </fieldset>
+    <fieldset>
+        <service allservice="arrayAllService"></service>
+    </fieldset>    
+    <fieldset ng-show="categorySelect.ServiceCenter || categorySelect.ServicePoint">
+    	<timetable time="arrayTimetableOpentime" headline="'Öffnungszeiten'"></timetable>
+    </fieldset>
+    <fieldset ng-show="categorySelect.Briefkasten">
+		<timetable time="arrayTimetableEmptytime" headline="'Entleerungszeiten'"></timetable>
+    </fieldset>
+    <hr />
+    <p>
+        <button class="btn btn-primary" type="button" ng-click="clickInsertLocation()">Location eintragen</button>
+    </p>
+</div>
+

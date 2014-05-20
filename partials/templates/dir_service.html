@@ -1,0 +1,44 @@
+<legend class="btn-primary legendservice" data-ng-init="init()">
+	<button class="btn btn-mini btn-primary marginright10" type="button" ng-model="opencollapsed" ng-click="opencollapsed=!opencollapsed">
+    	<i  ng-class="{'icon-chevron-down': !opencollapsed, 'icon-chevron-up': opencollapsed}">
+        </i>
+    </button>
+    <i class="icon-star icon-white" ></i> | Serviceleistungen
+</legend>
+<div class="well wellservice" ng-show="opencollapsed">
+    <div class="input-prepend"> 
+        <span class="add-on btn-primary">
+            <input type="radio" name="customergroup" ng-model="customergroup" ng-value="0">
+        </span>
+        <span class="locationinputwidth-s prependedInput uneditable-input">
+            Privatkunden
+        </span>
+        <span class="add-on btn-primary locationinputmarginleft">
+            <input type="radio"  name="customergroup" ng-model="customergroup" ng-value="1">
+        </span>
+        <span class="locationinputwidth-s prependedInput uneditable-input">
+            Geschäftskunden
+        </span>
+    </div>
+    <div>
+        <div ng-repeat="category in serviceCategorys" ng-show="filteredService.length > 0">
+             <div class="input-prepend input-append row-fluid" >
+             	<span class="add-on"><i ng-class="{'icon-folder-close': !servicescollapsed, 'icon-folder-open': servicescollapsed}"></i></span>
+                <span ng-model="myInsertDataArray.locationname" class="locationinputwidth-l prependedInput uneditable-input" type="text" >
+                {{category.categoryname}}
+                </span>
+                <span class="btn btn-primary add-on" ng-model="servicescollapsed" ng-click="servicescollapsed=!servicescollapsed">
+                	<i class="icon-white" ng-class="{'icon-circle-arrow-down': !servicescollapsed, 'icon-circle-arrow-up': servicescollapsed}">
+                </i></span>
+            </div>
+            <div ng-show="servicescollapsed" class="input-append">
+                <div ng-repeat="service in filteredService = (allService | filter: {categoryname: category.categoryname, customergroup: customergroup})">
+                	<span class="locationinputwidth-l locationinputmarginleft prependedInput uneditable-input">{{service.servicename}}</span>
+                    <span class="btn add-on" ng-click="clickServiceArrayAction(service)">
+                    	<div ng-class="{'icon-ok': service.isSelected, 'icon-cancel': !service.isSelected}"></i>
+                    </span>
+                </div>
+            </div>         
+        </div>
+    </div>
+</div>
