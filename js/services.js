@@ -9,7 +9,13 @@ mygmapAppServices.factory('SharedService', function($rootScope) {
     sharedService.pid = '';
 	sharedService.objectname = '';
 	sharedService.brand = '';
+	sharedService.sharedLocation = '';
 
+    sharedService.setSharedLocation = function(sharedLocation) {
+		this.sharedLocation = sharedLocation;
+        this.broadcastItem();
+    };
+	
     sharedService.setBroadcastPID = function(pid,objectname) {
 		this.pid = pid;
 		this.objectname = ' - ' + objectname;

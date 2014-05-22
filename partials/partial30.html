@@ -1,7 +1,63 @@
 <hr />
-<p>Show Table</p>
-
-
+<legend ng-init="init()"class="btn-primary legendservice">
+	<button class="btn btn-mini btn-primary marginright10" type="button" ng-model="opencollapsed" ng-click="opencollapsed=!opencollapsed">
+    	<i  ng-class="{'icon-chevron-down': !opencollapsed, 'icon-chevron-up': opencollapsed}">
+        </i>
+    </button>
+    <i class="icon-filter icon-white" ></i> | Location-Directory-Filter
+</legend>
+<div class="well wellservice" ng-show="opencollapsed">
+<p>fdgdfgd</p>
+</div>
+<div class="well wellservice">
+    <table class="table-condensed tbllocation">
+        <thead>
+            <tr class="btn-primary">
+                <th class="tbllocation30">SC</th>
+                <th class="tbllocation30">SP</th>
+                <th class="tbllocation30">BK</th>
+                <th class="tbllocation250">Locationname</th>
+                <th class="tbllocation75">Plz</th>
+                <th class="tbllocation200">Ort</th>
+                <th class="tbllocation100">Aktionen</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="location in allLocation">
+                <td class="tbllocation30">
+                    <i ng-class="{'icon-ok tbllocationhascategory': hasCategory('0',location.categories),
+                                  'icon-remove tbllocationhasnotcategory': !hasCategory('0',location.categories)}" >
+                    </i>
+                </td>
+                <td class="tbllocation30">
+                	<i ng-class="{'icon-ok tbllocationhascategory': hasCategory('1',location.categories),
+                				  'icon-remove tbllocationhasnotcategory': !hasCategory('1',location.categories)}" >
+                    </i>
+                </td>
+                <td class="tbllocation30">
+                	<i ng-class="{'icon-ok tbllocationhascategory': hasCategory('2',location.categories),
+                				  'icon-remove tbllocationhasnotcategory': !hasCategory('2',location.categories)}" >
+                    </i>
+                </td>
+                <td class="tbllocation250">{{location.locationname}}</td>
+                <td class="tbllocation75">{{location.zipcode}}</td>
+                <td class="tbllocation200">{{location.locality}}</td>
+                <td class="tbllocation100">
+                    <a class="btn btn-mini btn-danger pull-left " >
+                        <i class="icon-remove icon-white"></i>
+                    </a>
+                    <a href="#/locationmanagerNewLocation" class="btn btn-mini btn-primary pull-left tbllocationbtnmargin5" >
+                        <i ng-click="clickSelectLocation(location)" class="icon-pencil icon-white"></i>
+                    </a>
+                    <a class="btn btn-mini btn-primary pull-left " >
+                        <i ng-click="showLocationDetails(location)" class="icon-info icon-white"></i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<locationdetail servicecategories="locationServiceCategories" showmodal="showModal" location="selectedLocation">gfhghfghfgh</locationdetail>
 
 
 

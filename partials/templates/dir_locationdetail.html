@@ -1,0 +1,109 @@
+<!-- MODAL MULTI GEOCODEDATA FOR ADDRESS -->
+<div ng-init="init()" ng-class="{'show fade-in': showmodal,
+                'hide fade-out': !showmodal}"
+     class="modal locationmodal" tabindex="-1" role="dialog">
+    <div class="modal-header btn-primary">
+        <button type="button" class="btn btn-primary pull-right" ng-click="showmodal = !showmodal" aria-hidden="true"><i class="icon-remove-sign icon-white"></i></button>
+        <h3 id="myModalLabel">{{location.locationname}}</h3>
+    </div>
+    <div class="modal-body locationmodalbody">
+		<div class="locationmodal325 borderright">
+        	<h4 class="btn-primary locheader">Adresse:</h4>
+            <span ng-show="location.additiontoaddress.length > 0">{{location.additiontoaddress}}</span><br ng-show="location.additiontoaddress.length > 0"/>
+            <span>{{location.street}} {{location.housenr}}</span><br />
+            <span>{{location.zipcode}} {{location.locality}}</span><br />
+            <h4 class="btn-primary locheader">Öffnungszeiten:</h4>
+        	<table class="tbltimes">
+            	<tr>
+                	<td>Montag</td>
+                    <td><span ng-repeat="time in location.opentimes | filter: {day: 0}">{{time.from}} Uhr - {{time.to}} Uhr<br /></span></td>
+                </tr>
+            	<tr>
+                	<td>Dienstag</td>
+                    <td><span ng-repeat="time in location.opentimes | filter: {day: 1}">{{time.from}} Uhr - {{time.to}} Uhr<br /></span></td>
+                </tr>
+            	<tr>
+                	<td>Mittwoch</td>
+                    <td><span ng-repeat="time in location.opentimes | filter: {day: 2}">{{time.from}} Uhr - {{time.to}} Uhr<br /></span></td>
+                </tr>
+            	<tr>
+                	<td>Donnerstag</td>
+                    <td><span ng-repeat="time in location.opentimes | filter: {day: 3}">{{time.from}} Uhr - {{time.to}} Uhr<br /></span></td>
+                </tr>
+            	<tr>
+                	<td>Freitag</td>
+                    <td><span ng-repeat="time in location.opentimes | filter: {day: 4}">{{time.from}} Uhr - {{time.to}} Uhr<br /></span></td>
+                </tr>
+            	<tr>
+                	<td>Samstag</td>
+                    <td><span ng-repeat="time in location.opentimes | filter: {day: 5}">{{time.from}} Uhr - {{time.to}} Uhr<br /></span></td>
+                </tr>
+            	<tr>
+                	<td>Sonntag</td>
+                    <td><span ng-repeat="time in location.opentimes | filter: {day: 6}">{{time.from}} Uhr - {{time.to}} Uhr<br /></span></td>
+                </tr>
+            </table>
+            <h4 ng-hide="location.emptytimes.length == 0" class="btn-primary locheader">Entleerungszeiten:</h4>
+        	<table ng-hide="location.emptytimes.length == 0" class="tbltimes">
+            	<tr>
+                	<td>Montag</td>
+                    <td><span ng-repeat="time in location.emptytimes | filter: {day: 0}">{{time.from}} Uhr<br /></span></td>
+                </tr>
+            	<tr>
+                	<td>Dienstag</td>
+                    <td><span ng-repeat="time in location.emptytimes | filter: {day: 1}">{{time.from}} Uhr<br /></span></td>
+                </tr>
+            	<tr>
+                	<td>Mittwoch</td>
+                    <td><span ng-repeat="time in location.emptytimes | filter: {day: 2}">{{time.from}} Uhr<br /></span></td>
+                </tr>
+            	<tr>
+                	<td>Donnerstag</td>
+                    <td><span ng-repeat="time in location.emptytimes | filter: {day: 3}">{{time.from}} Uhr<br /></span></td>
+                </tr>
+            	<tr>
+                	<td>Freitag</td>
+                    <td><span ng-repeat="time in location.emptytimes | filter: {day: 4}">{{time.from}} Uhr<br /></span></td>
+                </tr>
+            	<tr>
+                	<td>Samstag</td>
+                    <td><span ng-repeat="time in location.emptytimes | filter: {day: 5}">{{time.from}} Uhr<br /></span></td>
+                </tr>
+            	<tr>
+                	<td>Sonntag</td>
+                    <td><span ng-repeat="time in location.emptytimes | filter: {day: 6}">{{time.from}} Uhr<br /></span></td>
+                </tr>
+            </table>	
+        </div>
+        <div class="locationmodal325">
+        	<h4 class="btn-primary locheader">Serviceleistungen:</h4>
+            <div class="input-prepend row-fluid"> <span class="add-on add-on-width">Kategorie</span>
+                <select ng-init="myservicefilter='1'" ng-model="myservicefilter" ng-options="cat.pid_servicecategory as cat.categoryname for cat in servicecategories"></select>
+            </div>
+            <p ng-hide="(location.services|filter: {pid_servicecategory: myservicefilter, customergroup: 0}).length == 0" class="modalheaderser">Privatkunden<p>
+            <ul>
+        		<li ng-repeat="service in location.services | filter: {pid_servicecategory: myservicefilter, customergroup: 0}">{{service.servicename}}</li>	
+        	</ul>
+            <p ng-hide="(location.services|filter: {pid_servicecategory: myservicefilter, customergroup: 1}).length == 0" class="modalheaderser">Geschäftskunden</p>
+            <ul>
+        		<li ng-repeat="service in location.services | filter: {pid_servicecategory: myservicefilter, customergroup: 1}">{{service.servicename}}</li>	
+        	</ul>
+        </div>
+        <div class="locationmodalcontact">
+        	<h4 class="btn-primary locheader">Kontakt:</h4>
+            <span ng-repeat="contact in location.contacts">
+            	<hr />
+                <b>{{contact.surname}}, {{contact.firstname}}</b><br />
+             	Telefon: +({{contact.countrycode}}) (0){{contact.areacode}} - {{contact.phonenumber}} {{contact.callthrough}}<br />
+            	E-Mail : {{contact.email}}<br />
+            </span>
+        </div>
+    </div>
+    <div class="modal-footer btn-primary">
+        <button class="btn btn-danger" aria-hidden="true" ng-click="showmodal = !showmodal">abbrechen</button>
+        <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" ng-click="clickSelectGeodata()">übernehmen</button>
+    </div>
+</div>
+<div ng-class="{'modal-backdrop fade-in': showmodal,
+                'hide fade-out': !showmodal}"
+     ng-click="showmodal = !showmodal"></div>

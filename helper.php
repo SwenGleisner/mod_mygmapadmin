@@ -72,7 +72,101 @@ class modmygmapadminHelper
 			if($objData->cmd == 'strInsertLocation') {
 				$insertedpid = myLocation::getInstance()->insertLocation($objData->data);
 				return new JResponseJson($insertedpid);
-			}	
+			}
+			
+			if($objData->cmd == 'strUpdateLocation') {
+				//$insertedpid = myLocation::getInstance()->insertLocation($objData->data);
+				$updatelocationresult = myLocation::getInstance()->updateLocation($objData->data);
+				return new JResponseJson($updatelocationresult);
+			}
+
+			if($objData->cmd == 'strSelectAllLocation') {
+				$row = myLocation::getInstance()->selectAllLocation();
+				$allLocation = array();
+				foreach($row as $r){
+					$rowcat = myLocation::getInstance()->selectThisLocationCategory($r['pid_location']);
+					$thisLocationCategories = array();
+					foreach($rowcat as $rcat){	 	 
+						$thisLocationCategories[] = array('pid_locationcategory'=>$rcat['pid_locationcategory'],
+														  'fid_location'=>$rcat['fid_location'],
+														  'fid_category'=>$rcat['fid_category'],
+														  );
+					}	
+					$rowcon = myLocation::getInstance()->selectThisLocationContact($r['pid_location']);
+					$thisLocationContact = array();
+					foreach($rowcon as $rcon){	 	 
+						$thisLocationContact[] = array('pid_contact'=>$rcon['pid_contact'],
+													   'title'=>$rcon['title'],
+													   'firstname'=>$rcon['firstname'],
+													   'surname'=>$rcon['surname'],
+													   'countrycode'=>$rcon['countrycode'],
+													   'areacode'=>$rcon['areacode'],
+													   'phonenumber'=>$rcon['phonenumber'],
+													   'callthrough'=>$rcon['callthrough'],
+													   'email'=>$rcon['email'],
+													   'pid_locationcontact'=>$rcon['pid_locationcontact'],
+													   'fid_location'=>$rcon['fid_location'],
+													   'fid_contact'=>$rcon['fid_contact']
+													  );
+					}
+					$rowopt = myLocation::getInstance()->selectThisLocationTimetable($r['pid_location'],1);
+					$thisLocationOpentime = array();
+					foreach($rowopt as $ropt){	 										 	 
+						$thisLocationOpentime[] = array('pid_timetable'=>$ropt['pid_timetable'],
+													   'fid_category'=>$ropt['fid_category'],
+													   'fid_location'=>$ropt['fid_location'],
+													   'pid_time'=>$ropt['pid_time'],
+													   'day'=>$ropt['day'],
+													   'from'=>$ropt['from'],
+													   'to'=>$ropt['to'],
+													   'fid_timetable'=>$ropt['fid_timetable'],
+													  );
+					}
+					$rowemt = myLocation::getInstance()->selectThisLocationTimetable($r['pid_location'],2);
+					$thisLocationEmptytime = array();
+					foreach($rowemt as $remt){	 										 	 
+						$thisLocationEmptytime[] = array('pid_timetable'=>$remt['pid_timetable'],
+													   'fid_category'=>$remt['fid_category'],
+													   'fid_location'=>$remt['fid_location'],
+													   'pid_time'=>$remt['pid_time'],
+													   'day'=>$remt['day'],
+													   'from'=>$remt['from'],
+													   'to'=>$remt['to'],
+													   'fid_timetable'=>$remt['fid_timetable'],
+													  );
+					}
+					$rowsrv = myLocation::getInstance()->selectThisLocationService($r['pid_location']);
+					$thisLocationService = array();
+					foreach($rowsrv as $rsrv){										  										 	 
+						$thisLocationService[] = array('pid_locationservice'=>$rsrv['pid_locationservice'],
+													   'fid_location'=>$rsrv['fid_location'],
+													   'fid_service'=>$rsrv['fid_service'],
+													   'pid_service'=>$rsrv['pid_service'],
+													   'fid_category'=>$rsrv['fid_category'],
+													   'servicename'=>$rsrv['servicename'],
+													   'customergroup'=>$rsrv['customergroup'],
+													   'pid_servicecategory'=>$rsrv['pid_servicecategory'],
+													   'categoryname'=>$rsrv['categoryname'],
+													  );
+					}															 					 				 	 	 	 	 	 	 	 
+					$allLocation[] = array('pid_location'=>$r['pid_location'],
+										   'locationname'=>$r['locationname'],
+										   'latitude'=>$r['latitude'],
+										   'longitude'=>$r['longitude'],
+										   'additiontoaddress'=>$r['additiontoaddress'],
+										   'street'=>$r['street'],
+										   'housenr'=>$r['housenr'],
+										   'zipcode'=>$r['zipcode'],
+										   'locality'=>$r['locality'],
+										   'categories'=>$thisLocationCategories,
+										   'contacts'=>$thisLocationContact,
+										   'opentimes'=>$thisLocationOpentime,
+										   'emptytimes'=>$thisLocationEmptytime,
+										   'services'=>$thisLocationService
+										  );										
+				}
+				return new JResponseJson($allLocation);				
+			}
 		}	
 	}
 }

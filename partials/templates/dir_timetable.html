@@ -13,15 +13,16 @@
             <option>--</option>
         </select>
 
-        <span class="add-on locationinputmarginleft">Von</span>
+        <span ng-hide="headline == 'Entleerungszeiten'" class="add-on locationinputmarginleft">Von</span>
+        <span ng-hide="headline == 'Öffnungszeiten'" class="add-on locationinputmarginleft">Zeit</span>
         <div class="input-append bootstrap-timepicker">
             <timetabletimepicker ng-model="arrayAddOpenTime.from"></timetabletimepicker>
             <span class="add-on">
                 <i class="icon-time"></i>
             </span>
         </div>
-        <span class="add-on locationinputmarginleft">Bis</span>
-        <div class="input-append bootstrap-timepicker">
+        <span ng-hide="headline == 'Entleerungszeiten'" class="add-on locationinputmarginleft">Bis</span>
+        <div ng-hide="headline == 'Entleerungszeiten'" class="input-append bootstrap-timepicker">
         	<timetabletimepicker ng-model="arrayAddOpenTime.to"></timetabletimepicker>
             <span class="add-on">
                 <i class="icon-time"></i>
@@ -37,7 +38,9 @@
             <hr />
             <p ng-hide="checkCounter(weekday.id)">Keine Einträge vorhanden</p>
             <span ng-repeat="opentime in arrayOpenTimes | filter: weekday.name | orderBy: [from]" class="weekdaytime">
-                {{day.name}} {{opentime.from}} bis {{opentime.to}}
+                <span>{{day.name}} {{opentime.from}}</span>
+                <span ng-hide="headline == 'Entleerungszeiten'">bis</span>
+                <span>{{opentime.to}}</span>
                 <a class="btn btn-mini btn-danger pull-right" ng-click="clickRemoveFromArrayOpenTimes(opentime)"><i class="icon-remove icon-white"></i></a>
                 <br />
             </span>

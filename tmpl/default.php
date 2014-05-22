@@ -24,7 +24,7 @@ echo '<ul class="nav pull-right">';
 echo '<li class="active"><a href="#/index">Kontrollzentrum</a></li>';  
 echo '<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Location-Manager<b class="caret"></b></a>';
 echo '<ul class="dropdown-menu">';
-echo '<li><a href="#/locationmanagerShowDirectory">Location-Directory</a></li>';
+echo '<li><a href="#/locationmanagerAllLocation">Location-Directory</a></li>';
 echo '<li><a href="#/locationmanagerNewLocation">Location hinzufügen</a></li>';
 echo '</ul>';
 echo '</li>';

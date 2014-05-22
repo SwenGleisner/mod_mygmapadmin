@@ -6,26 +6,6 @@
     <i class="icon-user icon-white" ></i> | Kontakt-Daten
 </legend>
 <div class="well wellservice" ng-show="contactcollapsed">
-    <table ng-hide="arrayContacts.length < 0" class="table-condensed tblcontacs">
-        <thead>
-            <tr>
-                <th class="servicehead50">Anrede</th>
-                <th class="servicehead150">Nachname</th>
-                <th class="servicehead150">Vorname</th>
-                <th class="servicehead150">Telefon</th>
-                <th class="servicehead150">E-Mail</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="contactObject in arrayContacts">
-                <td class="servicehead50">{{contactObject.title}}</td>
-                <td class="servicehead150">{{contactObject.surname}}</td>
-                <td class="servicehead150">{{contactObject.firstname}}</td>
-                <td class="servicehead150">({{contactObject.countrycode}}) {{contactObject.areacode}}/{{contactObject.phonenumber}}-{{contactObject.callthrough}}</td>
-                <td class="servicehead150">{{contactObject.email}}</td>
-            </tr>
-        </tbody>
-    </table>
     <div class="input-prepend"> 
         <span class="add-on btn-primary">
             <input type="radio" ng-model="contactFormData.title" ng-value="'Herr'">
@@ -62,6 +42,32 @@
         <input ng-model="contactFormData.email" class="locationinputwidth-m" type="text" placeholder="hans.mustermann@company.de">
     </div>
     <p>
-        <button class="btn btn-primary" type="button" ng-click="clickAddContact()">Kontakt eintragen</button>
+        <button ng-hide="updatebtn"class="btn btn-primary" type="button" ng-click="clickAddContact()">Kontakt eintragen</button>
+        <button ng-hide="!updatebtn" class="btn btn-primary" type="button" ng-click="clickUpdateContact()">Änderungen eintragen</button>
     </p>
+    <table ng-hide="arrayContacts.length < 0" class="table-condensed tblcontacs">
+        <thead>
+            <tr>
+                <th class="servicehead50">Anrede</th>
+                <th class="servicehead150">Nachname</th>
+                <th class="servicehead150">Vorname</th>
+                <th class="servicehead150">Telefon</th>
+                <th class="servicehead150">E-Mail</th>
+                <th class="servicehead50">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="contactObject in arrayContacts">
+                <td class="servicehead50">{{contactObject.title}}</td>
+                <td class="servicehead150">{{contactObject.surname}}</td>
+                <td class="servicehead150">{{contactObject.firstname}}</td>
+                <td class="servicehead150">({{contactObject.countrycode}}) {{contactObject.areacode}}/{{contactObject.phonenumber}}-{{contactObject.callthrough}}</td>
+                <td class="servicehead150">{{contactObject.email}}</td>
+                <td class="servicehead50">
+                	<a class="btn btn-mini btn-primary pull-right" ng-click="clickEditContact(contactObject)"><i class="icon-pencil icon-white"></i></a>
+                    <a class="btn btn-mini btn-danger pull-right marginright10" ng-click="clickDeleteContact(contactObject)"><i class="icon-remove"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

@@ -49,7 +49,8 @@
     </fieldset>
     <hr />
     <p>
-        <button class="btn btn-primary" type="button" ng-click="clickInsertLocation()">Location eintragen</button>
+        <button ng-hide="update" class="btn btn-primary" type="button" ng-click="clickInsertLocation()">Location eintragen</button>
+        <button ng-hide="!update" class="btn btn-primary" type="button" ng-click="clickUpdateLocation()">Änderungen eintragen</button>
     </p>
 </div>
 
